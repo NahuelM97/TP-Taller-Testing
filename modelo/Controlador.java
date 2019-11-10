@@ -49,14 +49,14 @@ public class Controlador extends WindowAdapter implements ActionListener
         }
     }
 
-/**
- * Este metodo se encarga de la ejecucion de los comandos pedidos por el usuario y de lanzar los errores correspondientes si los hay.<br>
- * 
- * <b>pre:</b> Los strings estan separados correctamente para su analisis. <br>
- * <b>post:</b> Se ejecuto la secuencia de comandos. <br>
- * @param lineas Contenedor con los Strings de comandos a ejecutar. <br>
- * 
- */
+    /**
+     * Este metodo se encarga de la ejecucion de los comandos pedidos por el usuario y de lanzar los errores correspondientes si los hay.<br>
+     * 
+     * <b>pre:</b> Los strings estan separados correctamente para su analisis. <br>
+     * <b>post:</b> Se ejecuto la secuencia de comandos. <br>
+     * @param lineas Contenedor con los Strings de comandos a ejecutar. <br>
+     * 
+     */
     public void ejecutarComandos(ArrayList<String> lineas)
     {
         Object[] columna;

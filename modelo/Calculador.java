@@ -28,7 +28,7 @@ public class Calculador
      * @param columna2 Es una columna numérica, no nula, sin celdas nulas y de igual longitud que columna1. <br>
      * 
      * @return columna que contiene el resultado de la suma de ambas columnas. <br>
-    **/
+    */
     
     public static Double[] suma(Double[] columna1, Double[] columna2)
     {
