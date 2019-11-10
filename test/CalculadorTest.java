@@ -5,6 +5,7 @@ import java.util.Arrays;
 import modelo.Calculador;
 
 import org.junit.After;
+import org.junit.Assert;
 import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -35,8 +36,7 @@ public class CalculadorTest
         Double[] sumando2 = new Double[]{7.0,5.0,3.0};
         Double[] resultado = Calculador.suma(sumando1,sumando2);
         Double[] esperado = new Double[]{16.0,13.0,10.0};
-        if(!Arrays.equals(resultado,esperado))
-            fail("La suma no se realizó correctamente");
+        Assert.assertArrayEquals("La suma no se realizó correctamente", esperado, resultado);
     }
 
     /**
@@ -49,7 +49,6 @@ public class CalculadorTest
         Double[] minuendo = new Double[]{7.0,5.0,3.0};
         Double[] resultado = Calculador.resta(sustraendo,minuendo);
         Double[] esperado = new Double[]{2.0,3.0,4.0};
-        if(!Arrays.equals(resultado,esperado))
-            fail("La resta no se realizó correctamente");
+        Assert.assertArrayEquals("La resta no se realizó correctamente", esperado, resultado);
     }
 }
