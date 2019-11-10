@@ -36,7 +36,7 @@ public class Calculador_frecuenciaPorcentual_test
         Double[] columna = new Double[]{2.0, 4.5, 10.5, -14.5}; 
         Double valor = new Double(2.0);
         double resultado = calculador.frecuenciaPorcentual(columna,valor);
-        Assert.assertEquals(25.0,resultado,0.1);
+        Assert.assertEquals("El promedio no se calculo correctamente",25.0,resultado,0.1);
     }
     
     @Test
@@ -45,6 +45,6 @@ public class Calculador_frecuenciaPorcentual_test
         Double[] columna = new Double[0];
         Double valor = new Double(1.0);
         double resultado = calculador.frecuenciaPorcentual(columna,valor);
-        Assert.assertEquals(0.0,resultado,0.1);
+        Assert.assertEquals("La frecuencia porcentual no se calculo correctamente",0.0,resultado,0.1);
     }
 }
