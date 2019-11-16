@@ -40,10 +40,10 @@ public class ParserArchivo_grabarDatos_test {
         try
         {
             ConjuntoDatosNumericos conj;
-            String[] nombres = null;
+            String[] nombres = new String[2];
             nombres[0] = "cerouno";
             nombres[1] = "unouno";
-            double[][] filas=null;
+            double[][] filas= new double[3][2];
             filas[0][0] = 10.0;
             filas[0][1] = 10.1;
             filas[1][0] = 11.0;
@@ -56,9 +56,7 @@ public class ParserArchivo_grabarDatos_test {
             this.parser.grabarDatos(conjuntos);
             File archivo = new File(".\\Datos\\"+"Prueba"+".dat");
             ConjuntoDatos aux = this.parser.obtenerConjuntoDatos(archivo);
-            if(conj!=aux){
-                Assert.fail("Grabo mal el conjunto de datos");
-            }
+            Assert.assertEquals("Grabo mal el conjunto de datos", conj, aux);
         }            
         catch (Exception e){
             Assert.fail("Crashea por motivos desconocidos");
@@ -71,10 +69,10 @@ public class ParserArchivo_grabarDatos_test {
         try
         {
             ConjuntoDatosNoNumericos conj;
-            String[] nombres = null;
+            String[] nombres = new String[2];
             nombres[0] = "cerouno";
             nombres[1] = "unouno";
-            String[][] filas=null;
+            String[][] filas=new String[3][2];
             filas[0][0] = "cerocero";
             filas[0][1] = "cerouno";
             filas[1][0] = "unocero";
@@ -87,9 +85,7 @@ public class ParserArchivo_grabarDatos_test {
             this.parser.grabarDatos(conjuntos);
             File archivo = new File(".\\Datos\\"+"Prueba"+".dat");
             ConjuntoDatos aux = this.parser.obtenerConjuntoDatos(archivo);
-            if(conj!=aux){
-                Assert.fail("Grabo mal el conjunto de datos");
-            }
+            Assert.assertEquals("Obtuvo mal el conjunto de datos", conj, aux);
         }            
         catch (Exception e){
             Assert.fail("Crashea por motivos desconocidos");
