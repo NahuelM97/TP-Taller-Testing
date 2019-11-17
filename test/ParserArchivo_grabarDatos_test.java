@@ -23,7 +23,6 @@ import org.junit.Test;
 public class ParserArchivo_grabarDatos_test {
     private ParserArchivo parser;
     private ArrayList<ConjuntoDatosNumericos> conjuntos;
-    private ArrayList<ConjuntoDatosNoNumericos> conjuntosNoNumerico;
     @Before
     public void setUp() throws Exception 
     {
@@ -40,10 +39,10 @@ public class ParserArchivo_grabarDatos_test {
         try
         {
             ConjuntoDatosNumericos conj;
-            String[] nombres = null;
+            String[] nombres = new String[2];
             nombres[0] = "cerouno";
             nombres[1] = "unouno";
-            double[][] filas=null;
+            double[][] filas= new double[3][2];
             filas[0][0] = 10.0;
             filas[0][1] = 10.1;
             filas[1][0] = 11.0;
@@ -56,44 +55,10 @@ public class ParserArchivo_grabarDatos_test {
             this.parser.grabarDatos(conjuntos);
             File archivo = new File(".\\Datos\\"+"Prueba"+".dat");
             ConjuntoDatos aux = this.parser.obtenerConjuntoDatos(archivo);
-            if(conj!=aux){
-                Assert.fail("Grabo mal el conjunto de datos");
-            }
+            Assert.assertEquals("Grabo mal el conjunto de datos", conj, aux);
         }            
         catch (Exception e){
             Assert.fail("Crashea por motivos desconocidos");
         }
     }
-    
-    @Test
-    public void grabarDatos_Test_Clase2()
-    {
-        try
-        {
-            ConjuntoDatosNoNumericos conj;
-            String[] nombres = null;
-            nombres[0] = "cerouno";
-            nombres[1] = "unouno";
-            String[][] filas=null;
-            filas[0][0] = "cerocero";
-            filas[0][1] = "cerouno";
-            filas[1][0] = "unocero";
-            filas[1][1] = "unouno";
-            filas[2][0] = "doscero";
-            filas[2][1] = "dosuno";
-            conj = new ConjuntoDatosNoNumericos("Prueba", nombres, filas);
-            this.conjuntosNoNumerico = new ArrayList<ConjuntoDatosNoNumericos>();
-            this.conjuntosNoNumerico.add(conj);
-            this.parser.grabarDatos(conjuntos);
-            File archivo = new File(".\\Datos\\"+"Prueba"+".dat");
-            ConjuntoDatos aux = this.parser.obtenerConjuntoDatos(archivo);
-            if(conj!=aux){
-                Assert.fail("Grabo mal el conjunto de datos");
-            }
-        }            
-        catch (Exception e){
-            Assert.fail("Crashea por motivos desconocidos");
-        }
-    }
-    
 }
